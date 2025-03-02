@@ -5,6 +5,7 @@ import router from './router'
 // 如果需要使用 Element UI 等组件库，可在此引入
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import store from "../src/store/index"
 
 Vue.use(ElementUI);
 
@@ -17,7 +18,8 @@ function render(props = {}) {
   const { container } = props
   instance = new Vue({
     router,
-    render: h => h(App)
+    render: h => h(App),
+    store
   }).$mount(container ? container.querySelector('#app') : '#app')
 }
 
